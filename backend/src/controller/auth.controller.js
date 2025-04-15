@@ -80,7 +80,11 @@ export const Login = async (req, res) => {
 
 export const Logout = async (req, res) => {
   try {
-    res.clearCookie("token");
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    });
 
     res.status(200).json({
       status: "success",
