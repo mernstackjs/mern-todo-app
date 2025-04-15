@@ -13,18 +13,21 @@ export default function Login() {
     const password = formData.get("password");
 
     try {
-      const response = await fetch("http://localhost:5050/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          email,
+      const response = await fetch(
+        "https://mern-todo-app-ko4o.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            email,
 
-          password,
-        }),
-      });
+            password,
+          }),
+        }
+      );
       if (!response.ok) {
         const errorData = await response.json();
         console.log(errorData);

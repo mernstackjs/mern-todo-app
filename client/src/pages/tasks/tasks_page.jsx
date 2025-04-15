@@ -6,13 +6,16 @@ export default function TasksPages() {
   console.log(tasks, loading);
   const handleDelete = async (taskId) => {
     console.log(taskId);
-    const response = await fetch(`http://localhost:5050/api/tasks/${taskId}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": " application/json",
-      },
-      credentials: "include",
-    });
+    const response = await fetch(
+      `https://mern-todo-app-ko4o.onrender.com/api/tasks/${taskId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": " application/json",
+        },
+        credentials: "include",
+      }
+    );
     if (!response.ok) {
       const errorData = await response.json();
       console.log(errorData);

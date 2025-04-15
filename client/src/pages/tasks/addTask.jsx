@@ -10,17 +10,20 @@ export default function AddTask() {
     const formData = new FormData(e.target);
     const title = formData.get("title");
     const desc = formData.get("desc");
-    const response = await fetch("http://localhost:5050/api/tasks/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": " application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({
-        title,
-        desc,
-      }),
-    });
+    const response = await fetch(
+      "https://mern-todo-app-ko4o.onrender.com/api/tasks/create",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": " application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          title,
+          desc,
+        }),
+      }
+    );
     if (!response.ok) {
       const errorData = await response.json();
       console.log(errorData);

@@ -14,10 +14,13 @@ export default function AuthProvider({ children }) {
   const getCurrentUser = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5050/api/current-user", {
-        method: "GET",
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://mern-todo-app-ko4o.onrender.com/api/current-user",
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
       if (!response.ok) {
         const errorData = await response.json();
         console.log(errorData);
@@ -35,10 +38,13 @@ export default function AuthProvider({ children }) {
   }, []);
 
   const logout = async () => {
-    const response = await fetch("http://localhost:5050/api/auth/logout", {
-      method: "POST",
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://mern-todo-app-ko4o.onrender.com/api/auth/logout",
+      {
+        method: "POST",
+        credentials: "include",
+      }
+    );
     if (!response.ok) {
       const errorData = await response.json();
       console.log(errorData);
@@ -53,9 +59,12 @@ export default function AuthProvider({ children }) {
   const fetchTasks = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5050/api/tasks", {
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://mern-todo-app-ko4o.onrender.com/api/tasks",
+        {
+          credentials: "include",
+        }
+      );
       if (!response.ok) {
         const errorData = await response.json();
         console.log(errorData);

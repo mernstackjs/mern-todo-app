@@ -9,17 +9,20 @@ export default function Register() {
     const password = formData.get("password");
 
     try {
-      const response = await fetch("http://localhost:5050/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          username,
-          password,
-        }),
-      });
+      const response = await fetch(
+        "https://mern-todo-app-ko4o.onrender.com/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            username,
+            password,
+          }),
+        }
+      );
       if (!response.ok) {
         const errorData = await response.json();
         console.log(errorData);
