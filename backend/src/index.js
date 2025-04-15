@@ -20,9 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use("/api", router);
-app.get("/", (res, req) => {
-  res.json({
-    message: "api is running success",
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "api is running on port ",
   });
 });
 
